@@ -1,0 +1,481 @@
+@color-black: #000000;
+@color-white: #ffffff;
+@color-grey: #747474;
+@color-offwhite: #eaeaea;
+@color-offwhite-light: #f8f8f8;
+@color-feature: #00d2b3;
+
+@main-nav-height: 50px;
+
+.font(@font) when (isstring(@font)) {
+  & when (@font = 'Cerebri Sans') {
+    font-family: 'Cerebri Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  & when (@font = 'SangBleu Sans') {
+    font-family: 'SangBleu Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+}
+
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Hairline.otf');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Light.otf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Light.otf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Book.otf');
+  font-weight: 450;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-SemiBold.otf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-ExtraBold.otf');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Heavy.otf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  .font('Cerebri Sans');
+  font-size: 16px;
+  font-weight: normal;
+  color: @color-black;
+}
+
+h1, h2 {
+  .font('SangBleu Sans');
+  text-transform: uppercase;
+  letter-spacing: -2.5px;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  
+  &:hover, &:active {
+    text-decoration: none;
+  }
+}
+
+.container, .container-fluid {
+  max-width: 1000px;
+}
+
+nav#main-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  color: @color-black;
+  
+  a {
+    color: inherit;
+    transition: color 0.3s;
+  }
+  
+  #main-nav-bar {
+    position: relative;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    font-size: 24px;
+    
+    #logo {
+      padding: 1em;
+      .font('SangBleu Sans');
+      font-weight: bold;
+    }
+
+    #burger {
+      justify-self: flex-end;
+      padding: 1em;
+      .font('SangBleu Sans');
+      font-weight: bold;
+    }
+  }
+  
+  #menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    font-size: 46px;
+    font-weight: 300;
+    
+    &-items {
+      width: 80%;
+      max-width: 1000px;
+      
+      .menu-item, .menu-item-sub {
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+
+        &:hover {
+          color: @color-feature;
+        }
+      }
+      
+      .menu-item-sub {
+        padding-left: 1em;
+      }
+    }
+  }
+  
+  &.show-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: @color-black;
+    color: @color-white;
+    
+    #menu {
+      display: flex;
+    }
+  }
+}
+
+nav#sub-nav {
+  position: sticky;
+  top: 0px;
+  padding: 1em 0;
+  background-color: @color-white;
+  border-bottom: 1px solid @color-offwhite;
+  
+  a {
+    color: @color-black;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    
+    &.active, &:hover {
+      opacity: 1;
+    }
+    
+    &+a {
+      margin-left: 2em;
+    }
+  }
+}
+
+section {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  
+  &:nth-child(odd) {
+    background-color: @color-offwhite-light;
+  }
+  
+  h2 {
+    margin-bottom: 2em;
+  }
+}
+
+section#hero {
+  padding-top: 0;
+  padding-bottom: 0;
+  
+  #hero-image {
+    position: relative;
+    height: 40vw;
+    background-color: @color-feature;
+    background: url('../images/background-image.jpg');
+    background-size: 100%;
+    background-position: 50% -12vw;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      left: -20%;
+      right: -20%;
+      top: calc(~'100% - 5vw');
+      height: 20vw;
+      background-color: @color-feature;
+      transform: rotate(5deg);
+    }
+  }
+  
+  #hero-content {
+    position: relative;
+    z-index: 1;
+    background-color: @color-feature;
+
+    h1, p {
+      color: @color-white;
+    }
+
+    h1 {
+      width: 65%;
+      margin: 0;
+      margin-top: -1.25em;
+    }
+
+    p {
+      width: 50%;
+      font-size: 20px;
+      font-weight: 300;
+
+      &:first-of-type {
+        margin-top: 4em;
+      }
+
+      &:last-of-type {
+        margin-bottom: 4em;
+      }
+    }
+  }
+}
+
+section#overview {
+  font-size: 20px;
+  
+  article {
+    display: flex;
+    justify-content: space-between;
+  
+    main {
+      width: 60%;
+
+      h3, p {
+        margin: 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      h3 {
+        margin-bottom: 1em;
+      }
+
+      p {
+        margin-bottom: 2em;
+        font-weight: 300;
+      }
+
+      h3:last-child, p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    aside {
+      width: 27%;
+
+      .large-text {
+        display: block;
+        border-left: 1px solid @color-feature;
+        padding: 0.75em 0 3em 0.75em;
+        font-size: 28px;
+        font-weight: bold;
+        color: @color-feature;
+      }
+    }
+  }
+}
+
+section#contacts {
+  
+  .contact-card {
+    display: inline-flex;
+    align-items: center;
+    width: 49%;
+    background-color: @color-white;
+    font-size: 18px;
+    
+    &:nth-child(odd) {
+      margin-left: 2%;
+    }
+    
+    &-image {
+      width: 30%;
+      min-height: 175px;
+    }
+    
+    &-info {
+      padding: 1em;
+      width: 70%;
+        
+      h3, p, a {
+        margin: 0;
+      }
+
+      h3 {
+        font-size: 24px;
+      }
+
+      p {
+        color: @color-grey;
+      }
+
+      a {
+        color: @color-feature;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+section#downloads {
+  
+  .download-card {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 19%;
+    margin-left: 8%;
+    color: @color-black;
+      
+    &:nth-of-type(4n+1) {
+      margin-left: 0;
+    }
+      
+    &-image {
+      
+      img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+    }
+    
+    &-name {
+      
+      h3 {
+        margin: 0;
+        margin-top: 2em;
+      }
+    }
+    
+    &:hover {
+      
+      .download-card-image img {
+        transform: scale(1.15);
+        box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.45);
+      }
+    }
+  }
+}
+
+footer {
+  padding-top: 9em;
+  padding-bottom: 2em;
+  background-color: @color-black;
+  color: @color-white;
+  font-size: 14px;
+  font-weight: 300;
+  
+  article {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+    main {
+      width: 50%;
+      
+      .copyright {
+        font-weight: bold;
+      }
+      
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    aside {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 30%;
+      
+      a {
+        width: 50%;
+        color: @color-white;
+      }
+    }
+  }
+}

@@ -1,0 +1,394 @@
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Hairline.otf');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Light.otf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SangBleu Sans';
+  src: url('fonts/SangBleuSans-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Light.otf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Book.otf');
+  font-weight: 450;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-SemiBold.otf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-ExtraBold.otf');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cerebri Sans';
+  src: url('fonts/Cerebri-Sans-Heavy.otf');
+  font-weight: 900;
+  font-style: normal;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cerebri Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #000000;
+}
+h1,
+h2 {
+  font-family: 'SangBleu Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -2.5px;
+}
+h1 {
+  font-size: 72px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 34px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: none;
+}
+.container,
+.container-fluid {
+  max-width: 1000px;
+}
+nav#main-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  color: #000000;
+}
+nav#main-nav a {
+  color: inherit;
+  transition: color 0.3s;
+}
+nav#main-nav #main-nav-bar {
+  position: relative;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  font-size: 24px;
+}
+nav#main-nav #main-nav-bar #logo {
+  padding: 1em;
+  font-family: 'SangBleu Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+nav#main-nav #main-nav-bar #burger {
+  justify-self: flex-end;
+  padding: 1em;
+  font-family: 'SangBleu Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+nav#main-nav #menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  font-size: 46px;
+  font-weight: 300;
+}
+nav#main-nav #menu-items {
+  width: 80%;
+  max-width: 1000px;
+}
+nav#main-nav #menu-items .menu-item,
+nav#main-nav #menu-items .menu-item-sub {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+nav#main-nav #menu-items .menu-item:hover,
+nav#main-nav #menu-items .menu-item-sub:hover {
+  color: #00d2b3;
+}
+nav#main-nav #menu-items .menu-item-sub {
+  padding-left: 1em;
+}
+nav#main-nav.show-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  color: #ffffff;
+}
+nav#main-nav.show-menu #menu {
+  display: flex;
+}
+nav#sub-nav {
+  position: sticky;
+  top: 0px;
+  padding: 1em 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+}
+nav#sub-nav a {
+  color: #000000;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+nav#sub-nav a.active,
+nav#sub-nav a:hover {
+  opacity: 1;
+}
+nav#sub-nav a + a {
+  margin-left: 2em;
+}
+section {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+section:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+section h2 {
+  margin-bottom: 2em;
+}
+section#hero {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+section#hero #hero-image {
+  position: relative;
+  height: 40vw;
+  background-color: #00d2b3;
+  background: url('../images/background-image.jpg');
+  background-size: 100%;
+  background-position: 50% -12vw;
+}
+section#hero #hero-image:after {
+  content: '';
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: calc(100% - 5vw);
+  height: 20vw;
+  background-color: #00d2b3;
+  transform: rotate(5deg);
+}
+section#hero #hero-content {
+  position: relative;
+  z-index: 1;
+  background-color: #00d2b3;
+}
+section#hero #hero-content h1,
+section#hero #hero-content p {
+  color: #ffffff;
+}
+section#hero #hero-content h1 {
+  width: 65%;
+  margin: 0;
+  margin-top: -1.25em;
+}
+section#hero #hero-content p {
+  width: 50%;
+  font-size: 20px;
+  font-weight: 300;
+}
+section#hero #hero-content p:first-of-type {
+  margin-top: 4em;
+}
+section#hero #hero-content p:last-of-type {
+  margin-bottom: 4em;
+}
+section#overview {
+  font-size: 20px;
+}
+section#overview article {
+  display: flex;
+  justify-content: space-between;
+}
+section#overview article main {
+  width: 60%;
+}
+section#overview article main h3,
+section#overview article main p {
+  margin: 0;
+}
+section#overview article main h3:last-child,
+section#overview article main p:last-child {
+  margin-bottom: 0;
+}
+section#overview article main h3 {
+  margin-bottom: 1em;
+}
+section#overview article main p {
+  margin-bottom: 2em;
+  font-weight: 300;
+}
+section#overview article main h3:last-child,
+section#overview article main p:last-child {
+  margin-bottom: 0;
+}
+section#overview article aside {
+  width: 27%;
+}
+section#overview article aside .large-text {
+  display: block;
+  border-left: 1px solid #00d2b3;
+  padding: 0.75em 0 3em 0.75em;
+  font-size: 28px;
+  font-weight: bold;
+  color: #00d2b3;
+}
+section#contacts .contact-card {
+  display: inline-flex;
+  align-items: center;
+  width: 49%;
+  background-color: #ffffff;
+  font-size: 18px;
+}
+section#contacts .contact-card:nth-child(odd) {
+  margin-left: 2%;
+}
+section#contacts .contact-card-image {
+  width: 30%;
+  min-height: 175px;
+}
+section#contacts .contact-card-info {
+  padding: 1em;
+  width: 70%;
+}
+section#contacts .contact-card-info h3,
+section#contacts .contact-card-info p,
+section#contacts .contact-card-info a {
+  margin: 0;
+}
+section#contacts .contact-card-info h3 {
+  font-size: 24px;
+}
+section#contacts .contact-card-info p {
+  color: #747474;
+}
+section#contacts .contact-card-info a {
+  color: #00d2b3;
+  font-weight: bold;
+}
+section#downloads .download-card {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 19%;
+  margin-left: 8%;
+  color: #000000;
+}
+section#downloads .download-card:nth-of-type(4n+1) {
+  margin-left: 0;
+}
+section#downloads .download-card-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+section#downloads .download-card-name h3 {
+  margin: 0;
+  margin-top: 2em;
+}
+section#downloads .download-card:hover .download-card-image img {
+  transform: scale(1.15);
+  box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.45);
+}
+footer {
+  padding-top: 9em;
+  padding-bottom: 2em;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+}
+footer article {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+footer article main {
+  width: 50%;
+}
+footer article main .copyright {
+  font-weight: bold;
+}
+footer article main p:last-child {
+  margin-bottom: 0;
+}
+footer article aside {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 30%;
+}
+footer article aside a {
+  width: 50%;
+  color: #ffffff;
+}

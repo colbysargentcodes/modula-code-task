@@ -1,0 +1,114 @@
+<html ng-app="atlantic-app" ng-controller="mainController">
+  <head>
+    <title>Atlantic Layout Assignment - Colby Sargent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+  </head>
+  <body>
+    <nav id="main-nav" ng-class="{'show-menu': showMenu}">
+      <div id="main-nav-bar">
+        <a id="logo" href="#">ATLANTIC</a>
+        <a id="burger" href="#" ng-click="showMenu = !showMenu">MENU</a>
+      </div>
+      <div id="menu">
+        <div id="menu-items">
+          <a ng-repeat-start="menuItem in atlanticData.menuItems" ng-bind="menuItem.name" ng-href="{{ menuItem.location }}" class="menu-item"></a>
+          <a ng-repeat-end ng-if="menuItem.items" ng-repeat="subItem in menuItem.items" ng-bind="subItem.name" ng-href="{{ subItem.location }}" class="menu-item-sub"></a>
+        </div>
+      </div>
+    </nav>
+    <section id="hero">
+      <div id="hero-image"></div>
+      <div id="hero-content">
+        <div class="container-fluid">
+          <div class="row">
+            <h1>BRIDGING THE FUNDAMENTAL WARRANTY GAP</h1>
+            <p>The specialists who make up our dedicated team have professional backgrounds in corporate and tax law, investment banking, general industry and insurance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <nav id="sub-nav">
+      <div class="container-fluid">
+        <div class="row">
+          <a href="#overview" ng-class="{active: activeSection=='overview'}">Overview</a>
+          <a href="#contacts" ng-class="{active: activeSection=='contacts'}">Contacts</a>
+          <a href="#downloads" ng-class="{active: activeSection=='downloads'}">Downloads</a>
+        </div>
+      </div>
+    </nav>
+    <section id="overview">
+      <div class="container-fluid">
+        <div class="row">
+          <article>
+            <main>
+              <h3>Scope</h3>
+              <p>Provides financial cover to the insured in the event of a breach of warranty or a claim under the tax covenant. The policy covers unknown risks and exclusions including identified risks, transfer pricing, secondary tax liabilities and pensions underfunding.</p>
+              <h3>Policyholder</h3>
+              <p>The buyer or seller. Although the seller will often introduce insurance to the deal, the buyer is typically the policyholder (91% of deals). A buyer-side policy allows the buyer to claim directly against the insurer for a breach of warranty or claim under the tax covenant. There is no need to involve the seller in the claim and the insurer will waive subrogation rights against the seller (save in the event of seller fraud).</p>
+              <h3>Time period</h3>
+              <p>The policy periods typically match or, in the case of a buyer-side policy, extend the time limitations set out in the acquisition agreement. The policy period is generally 18-36 months for general warranties and 7 years for title, capacity and tax.</p>
+              <h3>Premium</h3>
+              <p>This is calculated as a function of the policy limit. The premium will depend on factors including jurisdiction of the acquisition agreement, nature and location of the target’s operations and policy parameters. Premium rates are typically 0.75-1.3% for real estate transactions and 1-2% for operational businesses.</p>
+            </main>
+            <aside>
+              <span class="large-text">Over 15 years, 1,200 hedge funds have learned the truth about insurance.</span>
+            </aside>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="contacts">
+      <div class="container-fluid">
+        <div class="row">
+          <h2>CONTACTS</h2>
+          <div class="contact-card" ng-repeat="contact in atlanticData.contacts">
+            <div class="contact-card-image" ng-attr-style="background-image: url({{ contact.image }});"></div>
+            <div class="contact-card-info">
+              <h3 ng-bind="contact.name"></h3>
+              <p ng-repeat="number in contact.numbers" ng-bind="number"></p>
+              <a ng-if="contact.email" ng-href="mailto:{{ contact.email }}">Email &gt;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="downloads">
+      <div class="container-fluid">
+        <div class="row">
+          <h2>DOWNLOADS</h2>
+          <a class="download-card" ng-repeat="download in atlanticData.downloads" ng-href="{{ download.href }}" download>
+            <div class="download-card-image">
+              <img ng-src="{{ download.image }}">
+            </div>
+            <div class="download-card-name">
+              <h3 ng-bind="download.name"></h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <article>
+            <main>
+              <p class="copyright">Copyright © 2017 Atlantic Group. All rights reserved.</p>
+              <p>Vala rei pro, pubitab empostrimoer unticae ludetre cruntem opul hoc quitus terei ina, con tes conscios clus. Press play to find how we can enable your deal.</p>
+              <p>Designed by Modula.co</p>
+            </main>
+            <aside>
+              <a href="#">Privacy Statement</a>
+              <a href="#">Cookies</a>
+              <a href="#">Terms &amp; Conditions</a>
+              <a href="#">Complaints Procedure</a>
+            </aside>
+          </article>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
